@@ -686,6 +686,7 @@ impl CertificateDer<'_> {
 
 /// Holds either a certificate, or a public key.
 #[derive(Clone, Debug, PartialEq, Eq)]
+#[non_exhaustive]
 pub enum IdentityDer<'a> {
     /// Certificate
     Certificate(CertificateDer<'a>),
