@@ -684,6 +684,15 @@ impl CertificateDer<'_> {
     }
 }
 
+/// Holds either a certificate, or a public key.
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub enum IdentityDer<'a> {
+    /// Certificate
+    Certificate(CertificateDer<'a>),
+    /// Public key
+    PublicKey(SubjectPublicKeyInfoDer<'a>),
+}
+
 /// A DER-encoded SubjectPublicKeyInfo (SPKI), as specified in RFC 5280.
 #[deprecated(since = "1.7.0", note = "Prefer `SubjectPublicKeyInfoDer` instead")]
 pub type SubjectPublicKeyInfo<'a> = SubjectPublicKeyInfoDer<'a>;
